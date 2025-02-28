@@ -17,7 +17,7 @@ new = putStrLn "new"
 
 -- test upload
 
-doubleUs x y = doubleMe x + doubleMe y
+-- doubleUs x y = doubleMe x + doubleMe y
 
 {-
 
