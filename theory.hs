@@ -140,3 +140,54 @@ Function types: (a -> b)
 
 
 -}
+
+--------------------------------------------------------------------------------------------------
+
+{-
+Types and Typeclasses
+
+need to always declare types for functions
+
+:t followed by some argument returns the type of the argument (:: indicates the type)
+
+to define the types for a function: function :: type -> type
+
+the right most type is the return, everything to the left is the input type
+e.g. addUs Int -> Int -> Int
+     addUs x y = x + y
+
+to use arbituary types, we can use a
+e.g. doubleMe :: a -> a
+     doubleMe x = x + x
+
+this doesn't work because not every type can be added (e.g. string or bool) -> restrict a
+
+doubleMe :: Num a => a -> a (includes int, integer, float, double) this is an example of typeclass constraint
+
+:t (==) returns (==) :: Eq a => a -> a -> Bool (Eq is a typeclass that includes Num)
+
+
+Typeclasses:
+
+-- Eq, Ord  (all types that support equality or order relations, Ord is included in Eq)
+-- Show, Read (show includes things that can be converted to strings (?), read converts strings to ints (?))
+-- Enum (types that have a successor, i.e. can be enumerated)
+-- Num (includes numbers) :t 5 returns Num a not Int
+-- Integral, Floating (int or float)
+
+fromIntegral converts ints to 
+
+giving multiple type constraints to a function:
+
+fromIntegral :: (Integral a, Num b) => a -> b (converts the int a to some type b that is in Num)
+
+used to convert ints to floats 
+e.g. (fromIntegral (length [2,4])) / 3 returns 0.666 rather than the error you get by just using length
+
+
+
+
+
+-}
+
+
