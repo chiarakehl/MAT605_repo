@@ -1,14 +1,21 @@
 import Data.Char (toLower)
 
 {-
-
+----------------------------------------------------------------------------------------------------
 Exercise 2
-
+----------------------------------------------------------------------------------------------------
 -}
 
 -- fl :: [Double] -> [Int] that floors (rounds down) each number in a list.
 fl :: [Double] -> [Int]
-fl xs = [floor (x) | x <- xs]
+fl xs = [floor x | x <- xs]
+
+floor' :: [Double] -> [Int]
+floor' = map floor
+
+floor'' :: [Double] -> [Int]
+floor'' [] = []
+floor'' (x : xs) = floor x : floor'' xs
 
 -- d11 :: Int -> Bool that takes a number and checks if it is divisible by 11
 d11 :: Int -> Bool
@@ -21,27 +28,27 @@ toLowerCase str = [toLower x | x <- str]
 -- (according to hoogle, toLower is included in the base package, i had to import Data.Char to actually use it though)
 
 {-
-
+----------------------------------------------------------------------------------------------------
 Exercise 3
-
+----------------------------------------------------------------------------------------------------
 -}
 
 map' :: (a -> b) -> [a] -> [b]
 map' f as = [f a | a <- as]
 
 {-
-
+----------------------------------------------------------------------------------------------------
 Exercise 4
-
+----------------------------------------------------------------------------------------------------
 -}
 
 filter' :: (Eq a) => (a -> Bool) -> [a] -> [a]
 filter' p xs = [x | x <- xs, p x]
 
 {-
-
+----------------------------------------------------------------------------------------------------
 Exercise 5
-
+----------------------------------------------------------------------------------------------------
 -}
 
 -- i. i :: (a,b) -> (b,a)
@@ -56,9 +63,16 @@ ii x f = f x
 iii :: (a -> b) -> (b -> c) -> a -> c
 iii f g x = g (f x)
 
-{-
+compose :: (a -> b) -> (b -> c) -> a -> c
+compose f g x = g $ f x -- in place of brackets, means it needs to evaluate everything on the right first
 
+compose' :: (a -> b) -> (b -> c) -> a -> c
+compose' f g = g . f
+
+{-
+----------------------------------------------------------------------------------------------------
 Exercise 6
+----------------------------------------------------------------------------------------------------
 
 i. f :: Eq a => a -> [a] -> Bool => hoogle: elem, notElem
     - a function that checks if every element of a list is >, >=,  to some a
