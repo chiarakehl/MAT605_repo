@@ -8,19 +8,17 @@ Exercise 2
 
 -- fl :: [Double] -> [Int] that floors (rounds down) each number in a list.
 fl :: [Double] -> [Int]
-fl xs = [floor(x) | x <- xs]
+fl xs = [floor (x) | x <- xs]
 
 -- d11 :: Int -> Bool that takes a number and checks if it is divisible by 11
 d11 :: Int -> Bool
 d11 x = (x `mod` 11) == 0
 
-
 -- toLowerCase :: String -> String that converts a string to lower case.
 toLowerCase :: String -> String
-toLowerCase str = [toLower x | x <- str] 
+toLowerCase str = [toLower x | x <- str]
 
 -- (according to hoogle, toLower is included in the base package, i had to import Data.Char to actually use it though)
-
 
 {-
 
@@ -29,8 +27,7 @@ Exercise 3
 -}
 
 map' :: (a -> b) -> [a] -> [b]
-map' f as = [ f a | a <- as]
-
+map' f as = [f a | a <- as]
 
 {-
 
@@ -38,9 +35,8 @@ Exercise 4
 
 -}
 
-filter' :: Eq a => (a -> Bool) -> [a] -> [a]
+filter' :: (Eq a) => (a -> Bool) -> [a] -> [a]
 filter' p xs = [x | x <- xs, p x]
-
 
 {-
 
@@ -49,7 +45,7 @@ Exercise 5
 -}
 
 -- i. i :: (a,b) -> (b,a)
-i :: (a,b) -> (b,a)
+i :: (a, b) -> (b, a)
 i (a, b) = (b, a)
 
 -- ii. ii :: a -> (a -> b) -> b
@@ -58,8 +54,7 @@ ii x f = f x
 
 -- iii. iii :: (a -> b) -> (b -> c) -> a -> c
 iii :: (a -> b) -> (b -> c) -> a -> c
-iii f g x =  g ( f x )
-
+iii f g x = g (f x)
 
 {-
 
@@ -82,4 +77,3 @@ iii. h :: Ord a => [a] -> [a]   => hoogle: sort
         - h xs = [x | x <- xs, x == maximum xs]
 
 -}
-
