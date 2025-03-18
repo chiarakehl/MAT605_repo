@@ -109,3 +109,5 @@ coolAny p [] = Nope
 coolAny p (x : xs)
     | p x == Yup = Yup
     | otherwise = coolAny p xs
+
+-- for the push
