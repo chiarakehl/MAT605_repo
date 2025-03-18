@@ -108,16 +108,11 @@ List Comprehension
 
 -}
 
-add5 :: (Integral a) => [a] -> [a]
 add5 xs = [x + 5 | x <- xs, even x] -- returns a list where each even element += 5
 
-isVowel :: Char -> Bool
 isVowel x = x `elem` ['a', 'e', 'i', 'o', 'u']
-
-removeVowels :: [Char] -> [Char]
 removeVowels xs = [letter | letter <- xs, not (isVowel letter)]
 
-a :: [(Integer, Char)]
 a = zip [1 .. 5] ['a' .. 'z'] -- this stops when the first list ends -> can zip finite and infinite collections
 
 -- List comprehensions can range over several variables ([x+y | x <- [1..3], y <- [1..3]])
@@ -137,10 +132,7 @@ zip [1..5] ['a' .. 'z'] -> returns [(1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e')]
 
 -- Exercise: Create a list of triples (a, b, c) where a^2 + b^2 = c^2
 
-pythagorean :: (Num a, Eq a) => a -> a -> a -> Bool
 pythagorean a b c = a ^ 2 + b ^ 2 == c ^ 2
-
-pyTriple :: [(Integer, Integer, Integer)]
 pyTriple = [(a, b, c) | a <- [0 .. 10], b <- [0 .. 10], c <- [0 .. 10], pythagorean a b c]
 
 {-
